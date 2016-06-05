@@ -4,21 +4,33 @@ from django.db import models
 class Aircraft(models.Model):
     name = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.name
+
 
 class Container(models.Model):
     manufacturer = models.CharField(max_length=100, null=True, blank=True)
     name = models.CharField(max_length=50, null=True, blank=True)
+
+    def __str__(self):
+        return "%s %s" % (self.manufacturer, self.name)
 
 
 class Parachute(models.Model):
     name = models.CharField(max_length=50)
     size = models.SmallIntegerField()
 
+    def __str__(self):
+        return "%s %d" % (self.name, self.size)
+
 
 class Rig(models.Model):
     container = models.ForeignKey(Container)
     main_canopy = models.ForeignKey(Parachute, related_name='+')
     reserve = models.ForeignKey(Parachute, related_name='+', null=True, blank=True)
+
+    def __str__(self):
+        return "%s" % self.container.name
 
 
 class Jump(models.Model):
