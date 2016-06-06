@@ -4,9 +4,20 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .models import Jump
 from .forms import JumpForm
 
+
+def get_home_dz():
+    return 'Lake Elsinore'
+
+
 def index(request):
-    recent_jumps = reversed( Jump.objects.order_by('-date')[:5] )
-    return render(request, 'logbook/index.html', { 'jumps': recent_jumps, 'JumpForm': JumpForm() })
+    recent_jumps = list(reversed( Jump.objects.order_by('-date')[:5] ))
+    jump_no = Jump.objects.count() + 1
+    initial_data = {
+        'number': jump_no,
+        'location': get_home_dz()
+    }
+    return render(request, 'logbook/index.html', { 'jumps': recent_jumps, 'JumpForm': JumpForm(initial=initial_data) })
+
 
 def jumps(request):
     if request.method == 'GET':

@@ -1,0 +1,74 @@
+#banner {
+    /* override theme custom.css */
+    min-height: 0;
+}
+
+th, tr, td {
+    padding: 5px;
+}
+
+table.log-entry ul {
+    list-style: none;
+    text-align: left;
+}
+
+table.log-entry {
+    width: 100%;
+    border-color: #323c46;
+    border: 1px solid #323c46;
+}
+
+table.log-entry th {
+    color: #f0ad4e;
+}
+
+table.log-entry td {
+    text-align: center;
+    border: 1px solid #323c46;
+    border-color: #323c46;
+}
+
+table.log-entry th.notes {
+    text-align: left;
+    border-bottom: none;
+}
+table.log-entry td.notes {
+    padding: 10px 10px 20px 10px;
+    border-top: none;
+    min-height: 20px;
+}
+
+.log-entry .modal-footer {
+    padding: 5px;
+}
+
+.page-content {
+    min-height: 400px;
+}
+
+.jump-entry {
+    width: 75%;
+}
+ 
+.jump-entry select {
+    display: inline-block;
+}
+
+.jump-entry label {
+    margin-right: 10px;
+}
+
+/*.jump-entry input[type="text"] {*/
+.jump-entry input[type="text"], .jump-entry input[type="number"] {
+    display: block;
+    width: 25%;
+}
+
+.jump-entry textarea {
+    width: 100%;
+}
+
+footer {
+    width: 100%;
+    bottom: 0;
+}
