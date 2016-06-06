@@ -5,4 +5,5 @@ app_name = 'logbook'
 
 urlpatterns = [
     url(r'^$', views.index),
+    url(r'^jumps$', views.jumps, name='jumps'),
 ]

@@ -1,0 +1,30 @@
+A LOG OF ALL JUMPS
+
+{% for jump in jumps %}
+<table>
+    <thead>
+        <th>Jump#</th>
+        <th>Date</th>
+        <th>Exit Altitude</th>
+        <th>Location</th>
+        <th>Aircraft</th>
+        <th>Equipment</th>
+        <th>Freefall Time</th>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{ jump.number }}</td>
+        <td>{{ jump.date|date:"m/d/Y" }}</td>
+        <td>{{ jump.exit_altitude }}</td>
+        <td>{{ jump.location }}</td>
+        <td>{{ jump.aircraft }}</td>
+        <td>{{ jump.rig }}</td>
+        <td>{{ jump.freefall_time }}</td>
+    </tr>
+    <tr>
+    <th colspan="7" class="notes"></th>
+    <td colspan="7" class="notes">FOOFOOFOO</td>
+    </tr>
+    </tbody>
+</table>
+{% endfor %}

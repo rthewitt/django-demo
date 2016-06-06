@@ -2,9 +2,18 @@
 {% block title %}<h1>Logbook</h1><p class="lead">...for the digital age</p>{% endblock %}
 
 {% block content %}
+<div id="log-summary">
+    {% if jumps|length > 0 %}
+        <h2>Recent Jumps</h2>
+        {% for jump in jumps %}
+            <li>Jump #{{ jump.number }} at {{ jump.location }} from {{ jump.exit_altitude }} thousand feet on {{ jump.date }}</li>
+        {% endfor %}
+    {% endif %}
+</div>
 <div>
-    <form method="post">
+    <form action="{% url 'logbook:jumps' %}" method="post">
         {% csrf_token %}
+        {{ JumpForm.as_p }}
         <input type="submit" value="Save" />
     </form>
 </div>
