@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}<h1>Logbook</h1><p class="lead">...for the digital age</p>{% endblock %}
+
+{% block content %}
+<div>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Save" />
+    </form>
+</div>
+{% endblock %}
