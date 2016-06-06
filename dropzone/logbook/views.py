@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
 from .models import Jump
 from .forms import JumpForm
@@ -9,6 +10,7 @@ def get_home_dz():
     return 'Lake Elsinore'
 
 
+@login_required
 def index(request):
     recent_jumps = list(reversed( Jump.objects.order_by('-date')[:5] ))
     jump_no = Jump.objects.count() + 1
@@ -19,6 +21,7 @@ def index(request):
     return render(request, 'logbook/index.html', { 'jumps': recent_jumps, 'JumpForm': JumpForm(initial=initial_data) })
 
 
+@login_required
 def jumps(request):
     if request.method == 'GET':
         jumps = Jump.objects.all()
